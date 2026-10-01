@@ -103,10 +103,6 @@ select {
     margin-bottom: 15px;
 }
 
-.calculate:active {
-    transform: scale(0.98);
-}
-
 .result {
     border-top: 1px solid #e5e7eb;
     margin-top: 15px;
@@ -162,192 +158,255 @@ select {
 
 <div class="container">
 
-    <h1>🍞 Ekmek Sipariş Hesaplama</h1>
+<h1>🍞 Ekmek Sipariş Hesaplama</h1>
 
-    <!-- SİPARİŞ GÜNÜ -->
-    <div class="card">
+<!-- SİPARİŞ GÜNÜ -->
 
-        <div class="day-grid">
+<div class="card">
 
-            <div>
-                <label>Sipariş Günü</label>
+    <div class="day-grid">
 
-                <select id="orderDay">
-                    <option value="Salı">Salı</option>
-                    <option value="Perşembe">Perşembe</option>
-                    <option value="Cumartesi">Cumartesi</option>
-                </select>
-            </div>
+        <div>
+            <label>Sipariş Günü</label>
 
-            <div>
-                <label>Sevkiyat Günü</label>
+            <select id="orderDay">
 
-                <div id="deliveryDay" class="delivery">
+                <option value="Salı">
+                    Salı
+                </option>
+
+                <option value="Perşembe">
                     Perşembe
-                </div>
-            </div>
+                </option>
 
+                <option value="Cumartesi">
+                    Cumartesi
+                </option>
+
+            </select>
         </div>
 
-        <div class="info" style="margin-top:10px;">
-            Salı → Perşembe &nbsp; | &nbsp;
-            Perşembe → Cumartesi &nbsp; | &nbsp;
-            Cumartesi → Salı
-        </div>
+        <div>
 
-    </div>
+            <label>Sevkiyat Günü</label>
 
-
-    <!-- 7'' EKMEK -->
-
-    <div class="card">
-
-        <div class="title">
-            7’’ Tavukburger Ekmeği
-        </div>
-
-        <div class="info">
-            1 poşet = 24 adet
-        </div>
-
-        <div class="input-grid">
-
-            <div>
-                <label>Kapanış (adet)</label>
-                <input
-                    id="closing7"
-                    type="number"
-                    min="0"
-                    inputmode="numeric"
-                >
-            </div>
-
-            <div>
-                <label>Gelen (adet)</label>
-                <input
-                    id="incoming7"
-                    type="number"
-                    min="0"
-                    inputmode="numeric"
-                >
-            </div>
-
-            <div>
-                <label>Kullanım (adet)</label>
-                <input
-                    id="usage7"
-                    type="number"
-                    min="0"
-                    inputmode="numeric"
-                >
-            </div>
-
-        </div>
-
-        <div class="result">
-
-            <div class="result-row">
-                Kalan:
-                <span id="remaining7" class="value">—</span>
-                adet
-            </div>
-
-            <div class="result-row">
-                Sipariş:
-                <span id="bags7" class="value">—</span>
-                poşet
+            <div id="deliveryDay" class="delivery">
+                Perşembe
             </div>
 
         </div>
 
     </div>
 
+    <div class="info" style="margin-top:10px;">
 
-    <!-- 3.75 EKMEK -->
+        Salı → Perşembe |
+        Perşembe → Cumartesi |
+        Cumartesi → Salı
 
-    <div class="card">
+    </div>
 
-        <div class="title">
-            3.75 Ekmek
-        </div>
+</div>
 
-        <div class="info">
-            1 poşet = 30 adet
-        </div>
 
-        <div class="input-grid">
+<!-- 7'' TAVUKBURGER -->
 
-            <div>
-                <label>Kapanış (adet)</label>
-                <input
-                    id="closing375"
-                    type="number"
-                    min="0"
-                    inputmode="numeric"
-                >
-            </div>
+<div class="card">
 
-            <div>
-                <label>Gelen (adet)</label>
-                <input
-                    id="incoming375"
-                    type="number"
-                    min="0"
-                    inputmode="numeric"
-                >
-            </div>
+    <div class="title">
+        7’’ Tavukburger Ekmeği
+    </div>
 
-            <div>
-                <label>Kullanım (adet)</label>
-                <input
-                    id="usage375"
-                    type="number"
-                    min="0"
-                    inputmode="numeric"
-                >
-            </div>
+    <div class="info">
+        1 poşet = 24 adet
+    </div>
+
+    <div class="input-grid">
+
+        <div>
+
+            <label>Kapanış (adet)</label>
+
+            <input
+                id="closing7"
+                type="number"
+                min="0"
+                inputmode="numeric"
+            >
 
         </div>
 
-        <div class="result">
+        <div>
 
-            <div class="result-row">
-                Kalan:
-                <span id="remaining375" class="value">—</span>
-                adet
-            </div>
+            <label>Gelen (adet)</label>
 
-            <div class="result-row">
-                Sipariş:
-                <span id="bags375" class="value">—</span>
-                poşet
-            </div>
+            <input
+                id="incoming7"
+                type="number"
+                min="0"
+                inputmode="numeric"
+            >
+
+        </div>
+
+        <div>
+
+            <label>Kullanım (adet)</label>
+
+            <input
+                id="usage7"
+                type="number"
+                min="0"
+                inputmode="numeric"
+            >
 
         </div>
 
     </div>
 
+    <div class="result">
 
-    <!-- HESAPLA -->
+        <div class="result-row">
 
-    <button class="calculate" onclick="calculateOrder()">
-        HESAPLA
-    </button>
+            Sipariş adedi:
 
+            <span id="orderQty7" class="value">
+                —
+            </span>
 
-    <!-- BÜYÜK SİPARİŞ LİSTESİ -->
+            adet
 
-    <div class="card">
-
-        <div class="order-title">
-            BÜYÜK SİPARİŞ LİSTESİ
         </div>
 
-        <div id="orderList">
-            Bilgileri girip HESAPLA'ya bas.
+        <div class="result-row">
+
+            Sipariş:
+
+            <span id="bags7" class="value">
+                —
+            </span>
+
+            poşet
+
         </div>
 
     </div>
+
+</div>
+
+
+<!-- 3.75 EKMEK -->
+
+<div class="card">
+
+    <div class="title">
+        3.75 Ekmek
+    </div>
+
+    <div class="info">
+        1 poşet = 30 adet
+    </div>
+
+    <div class="input-grid">
+
+        <div>
+
+            <label>Kapanış (adet)</label>
+
+            <input
+                id="closing375"
+                type="number"
+                min="0"
+                inputmode="numeric"
+            >
+
+        </div>
+
+        <div>
+
+            <label>Gelen (adet)</label>
+
+            <input
+                id="incoming375"
+                type="number"
+                min="0"
+                inputmode="numeric"
+            >
+
+        </div>
+
+        <div>
+
+            <label>Kullanım (adet)</label>
+
+            <input
+                id="usage375"
+                type="number"
+                min="0"
+                inputmode="numeric"
+            >
+
+        </div>
+
+    </div>
+
+    <div class="result">
+
+        <div class="result-row">
+
+            Sipariş adedi:
+
+            <span id="orderQty375" class="value">
+                —
+            </span>
+
+            adet
+
+        </div>
+
+        <div class="result-row">
+
+            Sipariş:
+
+            <span id="bags375" class="value">
+                —
+            </span>
+
+            poşet
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- HESAPLA -->
+
+<button
+    class="calculate"
+    onclick="calculateOrder()">
+
+    HESAPLA
+
+</button>
+
+
+<!-- BÜYÜK SİPARİŞ LİSTESİ -->
+
+<div class="card">
+
+    <div class="order-title">
+        BÜYÜK SİPARİŞ LİSTESİ
+    </div>
+
+    <div id="orderList">
+
+        Bilgileri girip HESAPLA'ya bas.
+
+    </div>
+
+</div>
 
 </div>
 
@@ -367,7 +426,7 @@ const deliveryDays = {
 };
 
 
-/* SEVKİYAT GÜNÜNÜ GÜNCELLE */
+/* SEVKİYAT GÜNÜ */
 
 function updateDeliveryDay() {
 
@@ -376,10 +435,11 @@ function updateDeliveryDay() {
 
     document.getElementById("deliveryDay").innerText =
         deliveryDays[orderDay];
+
 }
 
 
-/* SAYI AL */
+/* SAYI OKUMA */
 
 function getNumber(id) {
 
@@ -387,18 +447,31 @@ function getNumber(id) {
         Number(document.getElementById(id).value);
 
     return value || 0;
+
 }
 
 
-/* HESAPLAMA */
+/* ANA HESAPLAMA */
 
 function calculateOrder() {
 
-    /*
-        7'' EKMEK
 
-        Kapanış + Gelen - Kullanım = Kalan
+    /*
+    
+    DOĞRU FORMÜL:
+
+    KULLANIM
+    -
+    KAPANIŞ
+    -
+    GELEN
+    =
+    SİPARİŞ ADEDİ
+
     */
+
+
+    /* 7'' TAVUKBURGER */
 
     const closing7 =
         getNumber("closing7");
@@ -410,31 +483,32 @@ function calculateOrder() {
         getNumber("usage7");
 
 
-    const remaining7 =
-        closing7 + incoming7 - usage7;
+    let orderQty7 =
+        usage7 - closing7 - incoming7;
+
+
+    /* Negatif sipariş olmaz */
+
+    if (orderQty7 < 0) {
+
+        orderQty7 = 0;
+
+    }
 
 
     /*
-        1 poşet = 24 adet
+    
+    1 poşet = 24 adet
 
-        14.49 → 14
-        14.50 → 15
-        15.49 → 15
-        15.50 → 16
+    0.50 ve üzeri yukarı yuvarlanır.
+
     */
 
     const bags7 =
-        Math.max(
-            0,
-            Math.floor((remaining7 / 24) + 0.5)
-        );
+        Math.floor((orderQty7 / 24) + 0.5);
 
 
-    /*
-        3.75 EKMEK
-
-        Kapanış + Gelen - Kullanım = Kalan
-    */
+    /* 3.75 EKMEK */
 
     const closing375 =
         getNumber("closing375");
@@ -446,42 +520,49 @@ function calculateOrder() {
         getNumber("usage375");
 
 
-    const remaining375 =
-        closing375 + incoming375 - usage375;
+    let orderQty375 =
+        usage375 - closing375 - incoming375;
+
+
+    /* Negatif sipariş olmaz */
+
+    if (orderQty375 < 0) {
+
+        orderQty375 = 0;
+
+    }
 
 
     /*
-        1 poşet = 30 adet
+    
+    1 poşet = 30 adet
+
     */
 
     const bags375 =
-        Math.max(
-            0,
-            Math.floor((remaining375 / 30) + 0.5)
-        );
+        Math.floor((orderQty375 / 30) + 0.5);
 
 
-    /* SONUÇLARI GÖSTER */
+    /* SONUÇLARI EKRANA YAZ */
 
-    document.getElementById("remaining7").innerText =
-        remaining7;
+    document.getElementById("orderQty7").innerText =
+        orderQty7;
 
     document.getElementById("bags7").innerText =
         bags7;
 
 
-    document.getElementById("remaining375").innerText =
-        remaining375;
+    document.getElementById("orderQty375").innerText =
+        orderQty375;
 
     document.getElementById("bags375").innerText =
         bags375;
 
 
-    /* SİPARİŞ GÜNÜ */
+    /* SEVKİYAT */
 
     const orderDay =
         document.getElementById("orderDay").value;
-
 
     const deliveryDay =
         deliveryDays[orderDay];
@@ -525,10 +606,11 @@ function calculateOrder() {
         </div>
 
     `;
+
 }
 
 
-/* GÜN DEĞİŞİNCE SEVKİYATI DEĞİŞTİR */
+/* GÜN DEĞİŞTİĞİNDE */
 
 document
     .getElementById("orderDay")
